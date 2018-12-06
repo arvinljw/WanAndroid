@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_white"
+    >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/spacing_biggest"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:text="类型"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"/>
+
+    <android.support.design.internal.FlowLayout
+        android:id="@+id/layout_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_biggest"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
+
+
+</android.support.constraint.ConstraintLayout>

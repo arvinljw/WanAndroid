@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:layout_marginRight="@dimen/spacing_bigger"
+        android:background="@drawable/bg_solid"
+        android:paddingLeft="@dimen/spacing_bigger"
+        android:paddingTop="@dimen/spacing_smallest"
+        android:paddingRight="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_smallest"
+        android:text="标签"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_14"/>
+
+</FrameLayout>

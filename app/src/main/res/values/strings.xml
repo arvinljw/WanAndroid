@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WanAndroid</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_knowledge">知识体系</string>
+    <string name="tab_navigation">导航</string>
+    <string name="tab_project">项目</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="about_us">\t\t该App的全部文章数据来源于WanAndroid网站，该网站每天新增20～30篇优质文章；除此之外，还为大家提供了平时开发过程中常用的工具和网站导航。\n\n\t\t该App使用文章数据完全是为了共同学习，本App的代码开源地址：https://github.com/arvinljw/WanAndroid 。</string>
+</resources>

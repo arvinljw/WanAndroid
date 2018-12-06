@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white">
+
+    <net.arvin.baselib.widgets.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerCustomView="@layout/layout_header_search"
+        app:centerType="customView"
+        app:leftBackground="@drawable/bg_button"
+        app:leftImageResource="@drawable/ic_back"
+        app:leftType="imageView"
+        app:rightImageResource="@drawable/ic_search"
+        app:rightType="imageView"
+        app:showBottomLine="false"
+        app:statusBarColor="@color/primary_dark"
+        app:statusBarMode="light"
+        app:titleBarColor="@color/primary"/>
+
+    <TextView
+        android:id="@+id/tv_hot_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_bigger"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:text="热搜"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar"
+        />
+
+    <android.support.design.internal.FlowLayout
+        android:id="@+id/layout_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_bigger"
+        android:paddingRight="@dimen/spacing_bigger"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hot_title"/>
+
+    <TextView
+        android:id="@+id/tv_search_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_bigger"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:text="历史搜索"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@+id/layout_flow"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_history_title"/>
+
+
+</android.support.constraint.ConstraintLayout>

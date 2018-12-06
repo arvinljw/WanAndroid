@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#353434</color>
+    <color name="primary_dark">#282727</color>
+    <color name="primary_light">#757575</color>
+    <color name="accent">#bbbbbb</color>
+    <color name="primary_text">#eeeeee</color>
+    <color name="secondary_text">#dddddd</color>
+    <color name="third_text">#bbbbbb</color>
+    <color name="text">#FFFFFF</color>
+    <color name="divider">#757575</color>
+    <color name="background">#606060</color>
+    <color name="background_white">#606060</color>
+    <color name="ripple">#66000000</color>
+    <color name="navigation_type">#353434</color>
+    <color name="navigation_type_selected">#999999</color>
+</resources>

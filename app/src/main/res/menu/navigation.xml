@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_home"
+        android:icon="@drawable/selector_tab_home"
+        android:title="@string/tab_home"/>
+    <item
+        android:id="@+id/tab_knowledge"
+        android:icon="@drawable/selector_tab_knowledge"
+        android:title="@string/tab_knowledge"/>
+    <item
+        android:id="@+id/tab_navigation"
+        android:icon="@drawable/selector_tab_navigation"
+        android:title="@string/tab_navigation"/>
+    <item
+        android:id="@+id/tab_project"
+        android:icon="@drawable/selector_tab_project"
+        android:title="@string/tab_project"/>
+
+</menu>

@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "net.arvin.wanandroid"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("arvinljw.jks")
+            storePassword "123456"
+            keyAlias "arvin"
+            keyPassword "123456"
+        }
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+        allpro {
+            manifestPlaceholders = [BUGLY_APP_CHANNEL: "all"]
+        }
+        xiaomi {
+            manifestPlaceholders = [BUGLY_APP_CHANNEL: "xiaomi"]
+        }
+        huawei {
+            manifestPlaceholders = [BUGLY_APP_CHANNEL: "huawei"]
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
+                            && 'release' == variant.buildType.name) {
+                        outputFileName = "WanAndroid_v${variant.versionName}_release_${buildTime()}.apk"
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation project(':baselib')
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation 'com.facebook.shimmer:shimmer:0.3.0'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation('com.github.arvinljw:PictureSelector:v2.0.8') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.3.6'
+}
+
+def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format('MMddHHmm')
+    return formattedDate
+}

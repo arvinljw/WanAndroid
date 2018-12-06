@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.arvin.baselib.widgets.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerText="首页"
+        app:centerTextColor="@color/text"
+        app:centerType="textView"
+        app:fillStatusBar="false"
+        app:leftBackground="@drawable/bg_button"
+        app:leftImageResource="@drawable/ic_menu"
+        app:leftType="imageView"
+        app:rightBackground="@drawable/bg_button"
+        app:rightImageResource="@drawable/ic_search"
+        app:rightType="imageView"
+        app:showBottomLine="false"
+        app:titleBarColor="@color/primary"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/tab_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/navigation"/>
+
+    <FrameLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tab_navigation"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar"/>
+</android.support.constraint.ConstraintLayout>

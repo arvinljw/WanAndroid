@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <include layout="@layout/layout_header"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/layout_shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/text_24"
+            />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/tv_no_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_bar"
+        android:background="@drawable/bg_item"
+        android:drawableLeft="@drawable/ic_no_image"
+        android:drawablePadding="@dimen/spacing"
+        android:gravity="center_vertical"
+        android:padding="@dimen/spacing_bigger"
+        android:text="无图模式"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@+id/layout_shimmer"
+        />
+
+    <View
+        android:id="@+id/v_divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_no_image"
+        />
+
+    <TextView
+        android:id="@+id/tv_dark_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@drawable/bg_item"
+        android:drawableLeft="@drawable/ic_dark_style"
+        android:drawablePadding="@dimen/spacing"
+        android:gravity="center_vertical"
+        android:padding="@dimen/spacing_bigger"
+        android:text="夜间模式"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@id/tv_no_image"
+        />
+
+    <View
+        android:id="@+id/v_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_dark_style"
+        />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/cb_no_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/spacing_bigger"
+        app:layout_constraintBottom_toBottomOf="@id/tv_no_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_no_image"
+        />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/cb_dark_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/spacing_bigger"
+        app:layout_constraintBottom_toBottomOf="@id/tv_dark_style"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_dark_style"
+        />
+
+    <TextView
+        android:id="@+id/tv_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@drawable/bg_item"
+        android:drawableLeft="@drawable/ic_clear_cache"
+        android:drawablePadding="@dimen/spacing"
+        android:gravity="center_vertical"
+        android:padding="@dimen/spacing_bigger"
+        android:text="清除缓存"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@id/tv_dark_style"
+        />
+
+    <View
+        android:id="@+id/v_divider_3"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_clear_cache"
+        />
+
+    <TextView
+        android:id="@+id/tv_cache_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawablePadding="@dimen/spacing_smaller"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/spacing_bigger"
+        android:text="1.2M"
+        android:textColor="@color/third_text"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintBottom_toBottomOf="@id/tv_clear_cache"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_clear_cache"
+        />
+
+    <TextView
+        android:id="@+id/tv_upgrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@drawable/bg_item"
+        android:drawableLeft="@drawable/ic_version_upgrade"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawablePadding="@dimen/spacing"
+        android:gravity="center_vertical"
+        android:padding="@dimen/spacing_bigger"
+        android:text="版本升级"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@id/tv_clear_cache"
+        />
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawablePadding="@dimen/spacing_smaller"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/spacing_bigger"
+        android:text="v1.0.0"
+        android:textColor="@color/third_text"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintBottom_toBottomOf="@id/tv_upgrade"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_upgrade"
+        />
+
+    <View
+        android:id="@+id/v_divider_4"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_upgrade"
+        />
+
+    <TextView
+        android:id="@+id/tv_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0.5dp"
+        android:background="@drawable/bg_item"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawableRight="@drawable/ic_arrow_right"
+        android:drawablePadding="@dimen/spacing"
+        android:gravity="center_vertical"
+        android:padding="@dimen/spacing_bigger"
+        android:text="意见反馈"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintTop_toBottomOf="@id/tv_upgrade"
+        />
+
+    <View
+        android:id="@+id/v_divider_5"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider"
+        app:layout_constraintTop_toBottomOf="@id/tv_feedback"
+        />
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:layout_marginBottom="@dimen/spacing_biggest"
+        android:background="@drawable/bg_item"
+        android:gravity="center"
+        android:padding="@dimen/spacing"
+        android:text="退出登录"
+        android:textColor="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

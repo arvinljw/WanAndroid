@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="net.arvin.wanandroid">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions"/>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning"
+        tools:replace="android:label">
+
+        <activity
+            android:name=".uis.activities.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".uis.activities.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.SearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.KnowledgeTreeTabActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.ArticleDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.SearchArticleListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.LoginRegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.CollectionArticleActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uis.activities.AboutUsActivity"
+            android:screenOrientation="portrait"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.selector.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ps_file_paths"/>
+        </provider>
+        <activity
+            android:name="net.arvin.selector.uis.SelectorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransparentTheme"/>
+
+        <!-- 配置APP渠道号 -->
+        <meta-data
+            android:name="BUGLY_APP_CHANNEL"
+            android:value="${BUGLY_APP_CHANNEL}"/>
+
+        <provider
+            android:name=".utils.BuglyFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="name,authorities,exported,grantUriPermissions">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"
+                tools:replace="name,resource"/>
+        </provider>
+
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent"/>
+    </application>
+
+</manifest>

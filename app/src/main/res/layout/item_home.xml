@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_item"
+    android:padding="@dimen/spacing_bigger">
+
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="@dimen/big_image"
+        android:layout_height="@dimen/big_image"
+        android:layout_marginRight="@dimen/spacing"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_place"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_title"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="刨根究底之Service为什么能启动Activity"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintLeft_toRightOf="@+id/img_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_smaller"
+        android:drawableLeft="@drawable/ic_author"
+        android:drawablePadding="@dimen/spacing_smaller"
+        android:gravity="center"
+        android:text="郭霖"
+        android:textColor="@color/third_text"
+        android:textSize="@dimen/text_12"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/spacing"
+        android:gravity="center"
+        android:text="1分钟前"
+        android:textColor="@color/third_text"
+        android:textSize="@dimen/text_12"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+        app:layout_constraintLeft_toRightOf="@+id/tv_author"
+        app:layout_constraintTop_toTopOf="@+id/tv_author"
+        />
+
+    <TextView
+        android:id="@+id/tv_chapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing"
+        android:background="@drawable/bg_corner"
+        android:ellipsize="end"
+        android:maxWidth="100sp"
+        android:maxLines="1"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:text="完整项目完整项目完整项目"
+        android:textColor="@color/third_text"
+        android:textSize="@dimen/text_10"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+        app:layout_constraintLeft_toRightOf="@id/tv_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_author"
+        />
+
+    <ImageView
+        android:id="@+id/img_collection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_uncollection"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_author"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_author"
+        />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_smaller"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="这是这篇文章的描述，可能还不短，可能有两行，但是最多只显示两行"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

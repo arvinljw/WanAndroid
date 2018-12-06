@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_selected"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:maxLines="1"
+    android:paddingTop="@dimen/spacing_bigger"
+    android:paddingBottom="@dimen/spacing_bigger"
+    android:text="类型"
+    android:textColor="@color/secondary_text"
+    android:textSize="@dimen/text_16"
+    >
+
+</TextView>

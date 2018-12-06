@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="divider">0.5dp</dimen>
+    <dimen name="spacing_smallest">2dp</dimen>
+    <dimen name="spacing_smaller">4dp</dimen>
+    <dimen name="spacing">8dp</dimen>
+    <dimen name="spacing_bigger">12dp</dimen>
+    <dimen name="spacing_biggest">16dp</dimen>
+    <dimen name="status_bar">24dp</dimen>
+    <dimen name="tab_bar">40dp</dimen>
+    <dimen name="avatar">48dp</dimen>
+    <dimen name="app_bar">56dp</dimen>
+    <dimen name="float_button">64dp</dimen>
+    <dimen name="big_image">80dp</dimen>
+
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_15">15sp</dimen>
+    <dimen name="text_16">16sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_20">20sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+</resources>

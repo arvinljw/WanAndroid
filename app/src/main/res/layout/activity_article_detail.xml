@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/v_location"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <net.arvin.baselib.widgets.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:centerText="title"
+        app:centerTextColor="@color/text"
+        app:centerType="textView"
+        app:leftBackground="@drawable/bg_button"
+        app:leftImageResource="@drawable/ic_back"
+        app:leftType="imageView"
+        app:rightBackground="@drawable/bg_button"
+        app:rightImageResource="@drawable/ic_more"
+        app:rightType="imageView"
+        app:showBottomLine="false"
+        app:statusBarColor="@color/primary_dark"
+        app:statusBarMode="light"
+        app:titleBarColor="@color/primary"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar"
+        >
+
+        <WebView
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</android.support.constraint.ConstraintLayout>

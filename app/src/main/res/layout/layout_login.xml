@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/layout_shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/primary_dark"
+            android:textSize="@dimen/text_24"
+            />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/ed_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/tab_bar"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:hint="请输入用户名"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_shimmer"
+        app:met_baseColor="@color/primary_text"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="用户名"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/ed_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textSize="@dimen/text_15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_name"
+        app:met_baseColor="@color/primary_text"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelText="密码"
+        app:met_floatingLabelTextColor="@color/primary_text"
+        app:met_primaryColor="@color/primary"
+        app:met_textColorHint="@color/third_text"/>
+
+    <TextView
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tab_bar"
+        android:layout_marginTop="@dimen/spacing_bigger"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:background="@drawable/btn_login"
+        android:gravity="center"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="登录"
+        android:textColor="@color/text"
+        android:textSize="@dimen/text_16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password"
+        />
+
+    <TextView
+        android:id="@+id/tv_to_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/tab_bar"
+        android:paddingTop="@dimen/spacing_bigger"
+        android:paddingBottom="@dimen/spacing_bigger"
+        android:text="还没有账号？去注册"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/text_14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"/>
+
+</android.support.constraint.ConstraintLayout>
