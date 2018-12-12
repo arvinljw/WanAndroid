@@ -37,7 +37,7 @@
 
 ![](https://github.com/arvinljw/WanAndroid/blob/master/images/5.png)
 
-[apk下载](https://github.com/arvinljw/WanAndroid/blob/master/WanAndroid_v1.0.1.apk)
+[apk下载](https://github.com/arvinljw/WanAndroid/blob/master/WanAndroid_v1.0.2.apk)
 
 
 **扫描二维码下载**
