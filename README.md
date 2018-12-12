@@ -10,11 +10,11 @@
 * 使用**DrawerLayout+BottomNavigationView+Fragment**实现侧边栏加底部导航的App整体结构
 * 使用**TabLayout+ViewPager+Fragment**实现顶部导航布局
 * **双RecyclerView滑动联动**，效果见导航界面
-* 使用**[LoadSir](https://github.com/KingJA/LoadSir)**实现多状态布局
+* 使用自定义MultiStatusView实现多状态布局
 * 使用**Glide**加载图片
 * 使用**Theme.AppCompat.DayNight主题实现夜间模式**，切换几乎无抖动
 * **适配到8.0**
-* 使用Facebook的**[ShimmerFrameLayout](https://github.com/facebook/shimmer-android)**布局实现闪光文字
+* 使用Facebook的[ShimmerFrameLayout](https://github.com/facebook/shimmer-android)布局实现闪光文字
 * 使用动画实现**卡片翻转效果**，见登录注册界面
 * **bugly日志上报和版本更新**
 

@@ -37,4 +37,6 @@
         app:layout_constraintLeft_toRightOf="@+id/v_line"
         app:layout_constraintRight_toRightOf="parent"/>
 
+    <include layout="@layout/layout_multi_status_view"/>
+
 </android.support.constraint.ConstraintLayout>

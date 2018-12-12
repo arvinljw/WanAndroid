@@ -42,5 +42,4 @@ dependencies {
 
     api 'org.greenrobot:eventbus:3.1.1'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    api 'com.kingja.loadsir:loadsir:1.3.6'
 }

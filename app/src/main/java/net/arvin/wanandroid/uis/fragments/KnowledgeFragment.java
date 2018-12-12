@@ -20,8 +20,6 @@ import net.arvin.wanandroid.uis.activities.KnowledgeTreeTabActivity;
 import net.arvin.wanandroid.uis.adapters.KnowledgeTreeAdapter;
 import net.arvin.wanandroid.uis.uihelpers.IRefreshPage;
 import net.arvin.wanandroid.uis.uihelpers.RefreshHelper;
-import net.arvin.wanandroid.widgets.ErrorCallback;
-import net.arvin.wanandroid.widgets.LoadingCallback;
 
 import java.util.List;
 
@@ -49,18 +47,10 @@ public class KnowledgeFragment extends BaseFragment implements IRefreshPage, Bas
     }
 
     @Override
-    public void onReload(View v) {
-        super.onReload(v);
-        loadService.showCallback(LoadingCallback.class);
-        loadData();
-    }
-
-    @Override
     public void loadData() {
         ArticlesRepo.getKnowledgeTree().observe(this, new ApiObserver<List<TreeEntity>>() {
             @Override
             public void onSuccess(Response<List<TreeEntity>> response) {
-                loadService.showSuccess();
                 refreshHelper.loadSuccess(response);
             }
 
@@ -68,14 +58,12 @@ public class KnowledgeFragment extends BaseFragment implements IRefreshPage, Bas
             public void onError(Throwable throwable) {
                 super.onError(throwable);
                 refreshHelper.loadError();
-                loadService.showCallback(ErrorCallback.class);
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 super.onFailure(code, msg);
                 refreshHelper.loadError();
-                loadService.showCallback(ErrorCallback.class);
             }
         });
     }

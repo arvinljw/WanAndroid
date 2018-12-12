@@ -6,45 +6,39 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.Guideline
-        android:id="@+id/guild_h"
+        android:id="@+id/msv_guild_h"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"/>
 
     <TextView
-        android:id="@+id/tv_no_data"
+        android:id="@+id/msv_retry_no_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:drawableTop="@drawable/ic_no_data"
-        android:drawablePadding="@dimen/spacing"
+        android:drawablePadding="8dp"
         android:gravity="center_horizontal"
         android:text="暂无数据"
-        android:textColor="@color/secondary_text"
-        android:textSize="@dimen/text_18"
-        app:layout_constraintBottom_toTopOf="@+id/guild_h"
+        android:textColor="#666666"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/msv_guild_h"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
 
-    <TextView
-        android:id="@+id/tv_retry"
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/msv_btn_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing"
-        android:background="@drawable/bg_btn"
-        android:drawableLeft="@drawable/ic_refresh"
-        android:drawablePadding="@dimen/spacing"
-        android:paddingLeft="@dimen/spacing_bigger"
-        android:paddingTop="@dimen/spacing"
-        android:paddingRight="36dp"
-        android:paddingBottom="@dimen/spacing"
+        android:layout_marginTop="8dp"
         android:text="刷新试试"
-        android:textColor="@color/text"
+        android:textColor="#222222"
+        android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guild_h"
+        app:layout_constraintTop_toBottomOf="@+id/msv_guild_h"
         />
 
 </android.support.constraint.ConstraintLayout>

@@ -7,9 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.kingja.loadsir.core.LoadSir;
 
 import net.arvin.baselib.base.BaseFragment;
+import net.arvin.baselib.widgets.MultiStatusView;
+import net.arvin.baselib.widgets.MultiStatusViewHelper;
 import net.arvin.wanandroid.R;
 import net.arvin.wanandroid.entities.NavigationInfoEntity;
 import net.arvin.wanandroid.entities.Response;
@@ -17,9 +18,6 @@ import net.arvin.wanandroid.nets.ApiObserver;
 import net.arvin.wanandroid.nets.repositories.ArticlesRepo;
 import net.arvin.wanandroid.uis.adapters.NavigationAdapter;
 import net.arvin.wanandroid.uis.adapters.NavigationTypeAdapter;
-import net.arvin.wanandroid.widgets.EmptyCallback;
-import net.arvin.wanandroid.widgets.ErrorCallback;
-import net.arvin.wanandroid.widgets.LoadingCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +37,8 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
     private List<NavigationInfoEntity> items = new ArrayList<>();
     private int currPos;
     private boolean shouldScroll;
+
+    private MultiStatusViewHelper multiStatusViewHelper;
 
     private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
@@ -92,6 +92,7 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
     protected void init(Bundle savedInstanceState) {
         recyclerNavigation = root.findViewById(R.id.recycler_navigation);
         recyclerTypes = root.findViewById(R.id.recycler_types);
+        multiStatusViewHelper = new MultiStatusViewHelper((MultiStatusView) root.findViewById(R.id.multi_status_view), true);
 
         recyclerNavigation.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new NavigationAdapter(items);
@@ -105,8 +106,6 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
         recyclerTypes.addOnScrollListener(onTypeScrollListener);
 
         loadData();
-        loadService.showCallback(LoadingCallback.class);
-
     }
 
     public void loadData() {
@@ -121,31 +120,19 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
                 }
                 typeAdapter.notifyDataSetChanged();
                 adapter.notifyDataSetChanged();
-                if (items.size() > 0) {
-                    loadService.showSuccess();
-                } else {
-                    loadService.showCallback(ErrorCallback.class);
-                }
-            }
-
-            @Override
-            public void onError(Throwable throwable) {
-                super.onError(throwable);
-                if (items.size() > 0) {
-                    loadService.showSuccess();
-                } else {
-                    loadService.showCallback(ErrorCallback.class);
-                }
+                multiStatusViewHelper.showContent();
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 super.onFailure(code, msg);
-                if (items.size() > 0) {
-                    loadService.showSuccess();
-                } else {
-                    loadService.showCallback(ErrorCallback.class);
-                }
+                multiStatusViewHelper.showRetryInList(MultiStatusViewHelper.hasData(items));
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                super.onError(throwable);
+                multiStatusViewHelper.showRetryInList(MultiStatusViewHelper.hasData(items));
             }
         });
     }

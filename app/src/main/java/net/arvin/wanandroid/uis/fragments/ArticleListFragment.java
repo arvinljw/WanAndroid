@@ -22,8 +22,6 @@ import net.arvin.wanandroid.uis.activities.ArticleDetailActivity;
 import net.arvin.wanandroid.uis.adapters.ArticleAdapter;
 import net.arvin.wanandroid.uis.uihelpers.IRefreshPage;
 import net.arvin.wanandroid.uis.uihelpers.RefreshLoadMoreHelper;
-import net.arvin.wanandroid.widgets.ErrorCallback;
-import net.arvin.wanandroid.widgets.LoadingCallback;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -84,13 +82,6 @@ public class ArticleListFragment extends BaseFragment implements IRefreshPage, B
     }
 
     @Override
-    public void onReload(View v) {
-        super.onReload(v);
-        loadService.showCallback(LoadingCallback.class);
-        refreshLoadMoreHelper.autoRefresh();
-    }
-
-    @Override
     public void loadData() {
         LiveData<Resource<Response<PageList<ArticleEntity>>>> responseLiveData = ArticlesRepo.getKnowledgeTreeArticles(refreshLoadMoreHelper.getCurrPage(), cid);
         if (whichApi == API_PROJECT) {
@@ -103,7 +94,6 @@ public class ArticleListFragment extends BaseFragment implements IRefreshPage, B
         responseLiveData.observe(this, new ApiObserver<PageList<ArticleEntity>>() {
             @Override
             public void onSuccess(Response<PageList<ArticleEntity>> response) {
-                loadService.showSuccess();
                 refreshLoadMoreHelper.loadSuccess(response);
             }
 
@@ -111,18 +101,12 @@ public class ArticleListFragment extends BaseFragment implements IRefreshPage, B
             public void onError(Throwable throwable) {
                 super.onError(throwable);
                 refreshLoadMoreHelper.loadError();
-                if (refreshLoadMoreHelper.getItems().size() == 0) {
-                    loadService.showCallback(ErrorCallback.class);
-                }
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 super.onFailure(code, msg);
                 refreshLoadMoreHelper.loadError();
-                if (refreshLoadMoreHelper.getItems().size() == 0) {
-                    loadService.showCallback(ErrorCallback.class);
-                }
             }
         });
     }
@@ -147,5 +131,7 @@ public class ArticleListFragment extends BaseFragment implements IRefreshPage, B
     public void onDestroyView() {
         super.onDestroyView();
         EventBus.getDefault().unregister(this);
+        refreshLoadMoreHelper.onDestroy();
+        refreshLoadMoreHelper = null;
     }
 }

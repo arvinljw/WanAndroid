@@ -14,6 +14,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import net.arvin.baselib.base.BaseActivity;
 import net.arvin.baselib.utils.ToastUtil;
+import net.arvin.baselib.widgets.MultiStatusView;
+import net.arvin.baselib.widgets.MultiStatusViewHelper;
 import net.arvin.baselib.widgets.TitleBar;
 import net.arvin.itemdecorationhelper.ItemDecorationFactory;
 import net.arvin.wanandroid.R;
@@ -43,6 +45,7 @@ public class SearchActivity extends BaseActivity implements BaseQuickAdapter.OnI
     private RecyclerView recyclerSearchHistory;
     private SearchHistoryAdapter adapter;
     private List<String> items = new ArrayList<>();
+    private MultiStatusViewHelper multiStatusViewHelper;
 
     @Override
     protected int getContentView() {
@@ -57,6 +60,8 @@ public class SearchActivity extends BaseActivity implements BaseQuickAdapter.OnI
         tvSearchHistoryTitle = findViewById(R.id.tv_search_history_title);
         flowLayout = findViewById(R.id.layout_flow);
         recyclerSearchHistory = findViewById(R.id.recycler_search_history);
+
+        multiStatusViewHelper = new MultiStatusViewHelper((MultiStatusView) findViewById(R.id.multi_status_view), true);
 
         titleBar.getLeftImageView().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +81,8 @@ public class SearchActivity extends BaseActivity implements BaseQuickAdapter.OnI
         adapter = new SearchHistoryAdapter(items);
         adapter.setOnItemClickListener(this);
         adapter.setOnItemChildClickListener(this);
-        recyclerSearchHistory.setAdapter(adapter);
+        adapter.bindToRecyclerView(recyclerSearchHistory);
+        adapter.setEmptyView(R.layout.layout_empty_top);
         recyclerSearchHistory.addItemDecoration(new ItemDecorationFactory.DividerBuilder()
                 .dividerColor(getResources().getColor(R.color.divider))
                 .build(recyclerSearchHistory));
@@ -98,7 +104,20 @@ public class SearchActivity extends BaseActivity implements BaseQuickAdapter.OnI
         ArticlesRepo.getHotKeys().observe(this, new ApiObserver<List<HotKeyEntity>>() {
             @Override
             public void onSuccess(Response<List<HotKeyEntity>> response) {
+                multiStatusViewHelper.showContent();
                 addHotKey(response.getData());
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+                super.onError(throwable);
+                multiStatusViewHelper.showRetry();
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                super.onFailure(code, msg);
+                multiStatusViewHelper.showRetry();
             }
         });
     }

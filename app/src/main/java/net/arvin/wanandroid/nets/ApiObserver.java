@@ -1,6 +1,7 @@
 package net.arvin.wanandroid.nets;
 
 import net.arvin.baselib.nets.BaseObserver;
+import net.arvin.baselib.utils.ALog;
 import net.arvin.wanandroid.entities.Response;
 
 /**
@@ -21,6 +22,7 @@ public abstract class ApiObserver<R> extends BaseObserver<Response<R>> {
     }
 
     public void onFailure(int code, String msg) {
+        ALog.d(TAG, "code:" + code + "->msg:" + msg);
     }
 
     public abstract void onSuccess(Response<R> response);

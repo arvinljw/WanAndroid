@@ -96,4 +96,11 @@
         <!-- 中间自定义布局, 对应centerType_CustomView -->
         <attr name="centerCustomView" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="MultiStatusView">
+        <attr name="msv_emptyLayoutId" format="reference"/>
+        <attr name="msv_loadingLayoutId" format="reference"/>
+        <attr name="msv_retryLayoutId" format="reference"/>
+        <attr name="msv_retryBtnId" format="integer"/>
+    </declare-styleable>
 </resources>

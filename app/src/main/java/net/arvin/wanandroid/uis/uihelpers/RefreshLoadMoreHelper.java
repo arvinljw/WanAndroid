@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -50,9 +51,9 @@ public class RefreshLoadMoreHelper<T> implements SwipeRefreshLayout.OnRefreshLis
             } else {
                 this.adapter = adapterClass.getConstructor(List.class).newInstance(items);
             }
+            recyclerView.setAdapter(this.adapter);
             adapter.setOnLoadMoreListener(this, recyclerView);
             adapter.setEmptyView(R.layout.layout_empty);
-            recyclerView.setAdapter(this.adapter);
         } catch (Exception e) {
             throw new RuntimeException("Adapter's constructor must be Adapter(layoutId,List) or Adapter(List)");
         }
@@ -139,5 +140,12 @@ public class RefreshLoadMoreHelper<T> implements SwipeRefreshLayout.OnRefreshLis
 
     public boolean isFirstPage() {
         return currPage == firstPage;
+    }
+
+    public void onDestroy() {
+        refreshLayout = null;
+        adapter.setOnItemClickListener(null);
+        adapter = null;
+        refreshPage = null;
     }
 }

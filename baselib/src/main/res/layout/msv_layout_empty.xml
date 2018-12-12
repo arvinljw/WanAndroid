@@ -3,10 +3,17 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
-    <ProgressBar
+    <TextView
+        android:id="@+id/msv_empty_no_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:drawableTop="@drawable/ic_no_data"
+        android:drawablePadding="8dp"
+        android:gravity="center_horizontal"
+        android:text="暂无数据"
+        android:textColor="#666666"
+        android:textSize="18sp"
         />
 
 </FrameLayout>

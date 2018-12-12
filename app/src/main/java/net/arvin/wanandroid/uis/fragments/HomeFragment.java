@@ -22,8 +22,6 @@ import net.arvin.wanandroid.uis.adapters.ArticleAdapter;
 import net.arvin.wanandroid.uis.uihelpers.IRefreshPage;
 import net.arvin.wanandroid.uis.uihelpers.RefreshLoadMoreHelper;
 import net.arvin.wanandroid.utils.BannerImageLoader;
-import net.arvin.wanandroid.widgets.ErrorCallback;
-import net.arvin.wanandroid.widgets.LoadingCallback;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -59,13 +57,6 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
     }
 
     @Override
-    public void onReload(View v) {
-        super.onReload(v);
-        refreshLoadMoreHelper.autoRefresh();
-        loadService.showCallback(LoadingCallback.class);
-    }
-
-    @Override
     public void loadData() {
         boolean firstPage = refreshLoadMoreHelper.isFirstPage();
         if (firstPage) {
@@ -80,7 +71,6 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
         ArticlesRepo.getIndexArticles(refreshLoadMoreHelper.getCurrPage()).observe(this, new ApiObserver<PageList<ArticleEntity>>() {
             @Override
             public void onSuccess(Response<PageList<ArticleEntity>> response) {
-                loadService.showSuccess();
                 refreshLoadMoreHelper.loadSuccess(response);
             }
 
@@ -88,18 +78,12 @@ public class HomeFragment extends BaseFragment implements BaseQuickAdapter.OnIte
             public void onError(Throwable throwable) {
                 super.onError(throwable);
                 refreshLoadMoreHelper.loadError();
-                if (refreshLoadMoreHelper.getItems().size() == 0) {
-                    loadService.showCallback(ErrorCallback.class);
-                }
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 super.onFailure(code, msg);
                 refreshLoadMoreHelper.loadError();
-                if (refreshLoadMoreHelper.getItems().size() == 0) {
-                    loadService.showCallback(ErrorCallback.class);
-                }
             }
         });
     }

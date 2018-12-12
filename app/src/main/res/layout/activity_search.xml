@@ -34,13 +34,27 @@
         app:layout_constraintTop_toBottomOf="@+id/title_bar"
         />
 
-    <android.support.design.internal.FlowLayout
-        android:id="@+id/layout_flow"
+    <FrameLayout
+        android:id="@+id/layout_flow_or_loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/spacing_bigger"
-        android:paddingRight="@dimen/spacing_bigger"
-        app:layout_constraintTop_toBottomOf="@+id/tv_hot_title"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_hot_title">
+
+        <android.support.design.internal.FlowLayout
+            android:id="@+id/layout_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/spacing_bigger"
+            android:paddingRight="@dimen/spacing_bigger"/>
+
+        <net.arvin.baselib.widgets.MultiStatusView
+            android:id="@+id/multi_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:msv_loadingLayoutId="@layout/layout_loading"
+            app:msv_retryBtnId="@+id/tv_retry"
+            app:msv_retryLayoutId="@layout/layout_retry_small"/>
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tv_search_history_title"
@@ -51,7 +65,7 @@
         android:text="历史搜索"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/text_16"
-        app:layout_constraintTop_toBottomOf="@+id/layout_flow"
+        app:layout_constraintTop_toBottomOf="@+id/layout_flow_or_loading"
         />
 
     <android.support.v7.widget.RecyclerView
@@ -61,6 +75,5 @@
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_search_history_title"/>
-
 
 </android.support.constraint.ConstraintLayout>

@@ -5,13 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <net.arvin.baselib.widgets.TitleBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:fillStatusBar="false"
-        app:showBottomLine="false"
-        />
-
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/layout_shimmer"
         android:layout_width="wrap_content"
