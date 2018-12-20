@@ -1,5 +1,8 @@
 package net.arvin.wanandroid.entities;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -11,6 +14,7 @@ import java.util.List;
  * Function：
  * Desc：
  */
+@Entity(tableName = "article")
 public class ArticleEntity implements Parcelable {
 
     /**
@@ -48,6 +52,7 @@ public class ArticleEntity implements Parcelable {
     private String desc;
     private String envelopePic;
     private boolean fresh;
+    @PrimaryKey
     private int id;
     private String link;
     private String niceDate;
@@ -61,6 +66,7 @@ public class ArticleEntity implements Parcelable {
     private int userId;
     private int visible;
     private int zan;
+    @Ignore
     private List<TagEntity> tags;
     private int typeSize;
     private int typePos;

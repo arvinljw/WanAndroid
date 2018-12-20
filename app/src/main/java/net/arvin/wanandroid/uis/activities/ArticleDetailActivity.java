@@ -29,6 +29,7 @@ import net.arvin.wanandroid.entities.PageList;
 import net.arvin.wanandroid.entities.Response;
 import net.arvin.wanandroid.nets.ApiObserver;
 import net.arvin.wanandroid.nets.repositories.UserRepo;
+import net.arvin.wanandroid.utils.SharePreferenceUtil;
 import net.arvin.wanandroid.widgets.ShowMorePopupWindow;
 
 import org.greenrobot.eventbus.EventBus;
@@ -131,6 +132,10 @@ public class ArticleDetailActivity extends BaseActivity implements SwipeRefreshL
                 public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                     showMorePopupWindow.dismiss();
                     if (position == 0) {
+                        if (SharePreferenceUtil.getUser() == null) {
+                            LoginRegisterActivity.open(ArticleDetailActivity.this);
+                            return;
+                        }
                         showMores.remove(0);
                         articleEntity.setCollect(!articleEntity.isCollect());
                         showMores.add(0, articleEntity.isCollect() ? "取消收藏" : "收藏");

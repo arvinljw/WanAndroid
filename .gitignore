@@ -11,3 +11,5 @@
 /build
 /captures
 .externalNativeBuild
+
+app/class_files.txt

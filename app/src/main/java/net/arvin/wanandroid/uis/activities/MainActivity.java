@@ -55,7 +55,6 @@ public class MainActivity extends BaseActivity implements MainFragment.IDrawerTo
         fragmentTransaction.commit();
 
         layoutDrawer = findViewById(R.id.layout_drawer);
-
     }
 
     @Override

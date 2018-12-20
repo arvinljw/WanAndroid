@@ -11,7 +11,7 @@
 
     <style name="SplashTheme" parent="AppTheme">
         <item name="windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
