@@ -2,7 +2,8 @@ apply plugin: 'com.tencent.bugly.tinker-support'
 
 def bakPath = file("${buildDir}/bakApk/")
 
-def versionName = "1.0.5"
+def versionName = "1.0.6"
+//def patchVersion = "0.0.1"
 
 /**
  * 此处填写每次构建生成的基准包目录
@@ -37,6 +38,7 @@ tinkerSupport {
 
     // 构建基准包和补丁包都要指定不同的tinkerId，并且必须保证唯一性
     tinkerId = "base-${versionName}"
+//    tinkerId = "base-${versionName}-patch-${patchVersion}"
 
     // 构建多渠道补丁时使用
     buildAllFlavorsDir = "${bakPath}/${baseApkDir}"
