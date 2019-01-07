@@ -74,7 +74,11 @@ public class RefreshLoadMoreHelper<T> implements SwipeRefreshLayout.OnRefreshLis
             items.clear();
         }
         items.addAll(response.getData().getData());
-        adapter.setEnableLoadMore(response.getData().hasNext());
+        if (firstPage == 0) {
+            adapter.setEnableLoadMore(response.getData().hasNextStartWithZero());
+        } else {
+            adapter.setEnableLoadMore(response.getData().hasNext());
+        }
         if (currPage > firstPage) {
             adapter.loadMoreComplete();
         } else {

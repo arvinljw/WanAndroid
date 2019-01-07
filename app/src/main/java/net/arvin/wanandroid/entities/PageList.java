@@ -89,6 +89,10 @@ public class PageList<T> {
         return curPage < pageCount && notEmpty();
     }
 
+    public boolean hasNextStartWithZero() {
+        return curPage + 1 < pageCount && notEmpty();
+    }
+
     public boolean notEmpty() {
         return data != null && data.size() > 0;
     }

@@ -86,6 +86,7 @@ public class ArticleListFragment extends BaseFragment implements IRefreshPage, B
         LiveData<Resource<Response<PageList<ArticleEntity>>>> responseLiveData = ArticlesRepo.getKnowledgeTreeArticles(refreshLoadMoreHelper.getCurrPage(), cid);
         if (whichApi == API_PROJECT) {
             responseLiveData = ArticlesRepo.getProjectArticles(refreshLoadMoreHelper.getCurrPage(), cid);
+            refreshLoadMoreHelper.setFirstPage(0);
         } else if (whichApi == API_SEARCH_LIST) {
             responseLiveData = ArticlesRepo.getSearchArticles(refreshLoadMoreHelper.getCurrPage(), searchKey);
         } else if (whichApi == API_COLLECTION_LIST) {
