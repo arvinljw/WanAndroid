@@ -13,7 +13,7 @@
 * 使用自定义MultiStatusView实现多状态布局
 * 使用**Glide**加载图片
 * 使用**Theme.AppCompat.DayNight主题实现夜间模式**，切换几乎无抖动
-* **适配到8.0**
+* **适配到9.0**
 * 使用Facebook的[ShimmerFrameLayout](https://github.com/facebook/shimmer-android)布局实现闪光文字
 * 使用动画实现**卡片翻转效果**，见登录注册界面
 * **bugly日志上报和版本更新**
