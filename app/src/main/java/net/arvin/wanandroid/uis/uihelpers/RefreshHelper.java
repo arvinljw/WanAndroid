@@ -107,4 +107,8 @@ public class RefreshHelper<T> implements SwipeRefreshLayout.OnRefreshListener {
     public BaseQuickAdapter<T, BaseViewHolder> getAdapter() {
         return adapter;
     }
+
+    public List<T> getItems() {
+        return items;
+    }
 }

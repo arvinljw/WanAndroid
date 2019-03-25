@@ -50,7 +50,7 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
             int firstVisibleItemPosition = getFirstVisibleItemPosition();
             if (currPos != firstVisibleItemPosition) {
                 selectItem(firstVisibleItemPosition);
-                scrollToPosition(recyclerTypes, currPos, true, false);
+                scrollToPosition(recyclerTypes, currPos, false, false);
             }
         }
 
@@ -70,7 +70,7 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
             super.onScrollStateChanged(recyclerView, newState);
             if (shouldScroll && newState == RecyclerView.SCROLL_STATE_IDLE) {
                 shouldScroll = false;
-                scrollToPosition(recyclerTypes, currPos, false, true);
+                scrollToPosition(recyclerTypes, currPos, false, false);
             }
         }
     };
@@ -151,6 +151,7 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
         int firstItem = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(0));
         int lastItem = recyclerView.getChildLayoutPosition(recyclerView.getChildAt(recyclerView.getChildCount() - 1));
         if (position < firstItem) {
+            shouldScroll = true;
             //在屏幕上方，直接滚上去就是顶部
             if (needSmooth) {
                 recyclerView.smoothScrollToPosition(position);
@@ -172,7 +173,7 @@ public class NavigationFragment extends BaseFragment implements BaseQuickAdapter
                 }
             }
         } else {
-            //在屏幕下方，需要西安滚动到屏幕内，在校验
+            //在屏幕下方，需要先滚动到屏幕内，在校验
             shouldScroll = true;
             if (needSmooth) {
                 recyclerView.smoothScrollToPosition(position);

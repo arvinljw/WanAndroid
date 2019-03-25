@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 
 import com.github.leonardoxh.livedatacalladapter.Resource;
 
+import net.arvin.baselib.utils.ALog;
+
 /**
  * Created by arvinljw on 2018/10/31 17:13
  * Function：
@@ -16,6 +18,7 @@ public abstract class BaseObserver<R> implements Observer<Resource<R>> {
     public void onChanged(@Nullable Resource<R> response) {
         if (response != null) {
             R data = response.getResource();
+            ALog.json("NetRequest", data);
             if (data != null) {
                 callback(data);
             } else {

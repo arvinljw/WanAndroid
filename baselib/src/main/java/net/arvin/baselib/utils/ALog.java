@@ -2,6 +2,8 @@ package net.arvin.baselib.utils;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+
 import net.arvin.baselib.BuildConfig;
 
 /**
@@ -11,6 +13,7 @@ import net.arvin.baselib.BuildConfig;
  */
 public class ALog {
     private static boolean debug = true;
+    private static Gson sGson;
 
     public static void init(boolean debug) {
         ALog.debug = debug;
@@ -37,6 +40,15 @@ public class ALog {
     public static void e(String tag, String msg) {
         if (debug) {
             Log.e(tag, msg);
+        }
+    }
+
+    public static void json(String tag, Object obj) {
+        if (debug) {
+            if (sGson == null) {
+                sGson = new Gson();
+            }
+            d(tag, sGson.toJson(obj));
         }
     }
 }

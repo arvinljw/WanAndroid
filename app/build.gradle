@@ -46,14 +46,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-//            applicationVariants.all { variant ->
-//                variant.outputs.all { output ->
-//                    if (output.outputFile != null && output.outputFile.name.endsWith('.apk')
-//                            && 'release' == variant.buildType.name) {
-//                        outputFileName = "WanAndroid_v${variant.versionName}.apk"
-//                    }
-//                }
-//            }
         }
     }
 

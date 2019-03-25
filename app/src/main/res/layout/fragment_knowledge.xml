@@ -9,4 +9,7 @@
         android:id="@+id/recycler_knowledge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <include layout="@layout/layout_multi_status_view"/>
+
 </android.support.v4.widget.SwipeRefreshLayout>

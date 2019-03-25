@@ -14,7 +14,6 @@ import net.arvin.baselib.utils.OkHttpsUtil;
 import java.io.InputStream;
 import java.lang.reflect.ParameterizedType;
 import java.net.Proxy;
-import java.util.Arrays;
 import java.util.Map;
 
 import javax.net.ssl.SSLSocketFactory;

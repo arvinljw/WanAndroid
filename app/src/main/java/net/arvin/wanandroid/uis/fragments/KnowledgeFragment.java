@@ -11,6 +11,8 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import net.arvin.baselib.base.BaseFragment;
+import net.arvin.baselib.widgets.MultiStatusView;
+import net.arvin.baselib.widgets.MultiStatusViewHelper;
 import net.arvin.wanandroid.R;
 import net.arvin.wanandroid.entities.Response;
 import net.arvin.wanandroid.entities.TreeEntity;
@@ -30,6 +32,7 @@ import java.util.List;
  */
 public class KnowledgeFragment extends BaseFragment implements IRefreshPage, BaseQuickAdapter.OnItemClickListener {
     private RefreshHelper<TreeEntity> refreshHelper;
+    private MultiStatusViewHelper multiStatusViewHelper;
 
     @Override
     protected int getContentView() {
@@ -38,6 +41,8 @@ public class KnowledgeFragment extends BaseFragment implements IRefreshPage, Bas
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        multiStatusViewHelper = new MultiStatusViewHelper((MultiStatusView) root.findViewById(R.id.multi_status_view), true);
+
         SwipeRefreshLayout refreshLayout = root.findViewById(R.id.refresh_layout);
         RecyclerView recyclerView = root.findViewById(R.id.recycler_knowledge);
 
@@ -52,18 +57,21 @@ public class KnowledgeFragment extends BaseFragment implements IRefreshPage, Bas
             @Override
             public void onSuccess(Response<List<TreeEntity>> response) {
                 refreshHelper.loadSuccess(response);
+                multiStatusViewHelper.showContent();
             }
 
             @Override
             public void onError(Throwable throwable) {
                 super.onError(throwable);
                 refreshHelper.loadError();
+                multiStatusViewHelper.showRetryInList(MultiStatusViewHelper.hasData(refreshHelper.getItems()));
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 super.onFailure(code, msg);
                 refreshHelper.loadError();
+                multiStatusViewHelper.showRetryInList(MultiStatusViewHelper.hasData(refreshHelper.getItems()));
             }
         });
     }
